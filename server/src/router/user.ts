@@ -1,8 +1,8 @@
 import { Router } from "express";
-import { createUser } from "../features/user/create-user.controller";
+import { createUserValidation, createUser} from "../features/user";
 
 const router: Router = Router();
 
-router.post('/signup', createUser)
+router.post('/signup', createUserValidation,createUser)
 
 export default router
