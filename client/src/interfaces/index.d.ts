@@ -1,5 +1,5 @@
 import { VariantProps } from "class-variance-authority";
-import { button } from "../features/user/ui/form/submit.style";
+import { button } from "../features/ui/form/submit.style";
 
 export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement>, VariantProps<typeof button> {}
 export interface FormProps extends React.FormHTMLAttributes<HTMLFormElement> {
