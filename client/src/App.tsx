@@ -4,6 +4,7 @@ import { Toaster } from "sonner"
 import { Router, Route } from "wouter"
 
 const SignUpPage = lazy(() => import("./pages/sign-up"))
+const LoginPage = lazy(() => import("./pages/login"))
 
 function App() {
 
@@ -13,6 +14,7 @@ function App() {
       <Suspense fallback="loading...">
         <Router base="/authentication">
           <Route path="/sign-up" component={SignUpPage} />
+          <Route path="/login" component={LoginPage} />
         </Router>
       </Suspense>
     </main>

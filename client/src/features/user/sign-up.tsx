@@ -1,7 +1,7 @@
 import React from "react";
 
 import { Form, Field, Button } from "@features/ui";
-import { handleCreateUser } from "./handle-create-user.util";
+import { handlePostUser } from "./handle-post-user.util";
 import { HandleFieldValidation } from "./handle-field-validation.hook";
 
 export const SignUp = () => {
@@ -17,7 +17,7 @@ export const SignUp = () => {
     <React.Fragment>
       <h1 className="text-3xl font-bold mb-10">Create account 🪪</h1>
       <Form
-        handleSubmit={handleCreateUser}
+        handleSubmit={(e) => handlePostUser(e, "signup")}
         method="post"
         onChange={handleChange}
       >
