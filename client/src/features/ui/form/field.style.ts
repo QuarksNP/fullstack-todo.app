@@ -1,17 +1,16 @@
 import { cva } from "class-variance-authority";
 
-export const button = cva(["rounded-sm", "text-white", "p-2", "mt-5"], {
+export const button = cva(["rounded", "outline-none", "p-2"], {
     variants: {
         intent: {
-            active: [
+            default: [
                 "bg-BrightBlue",
                 "hover:bg-LightBlue",
                 "transition-colors"
             ],
 
-            disabled: [
-                "bg-LightBlue",
-                "pointer-events-none"
+            error: [
+                "bg-LightBlue"
             ]
         },
 
@@ -23,13 +22,13 @@ export const button = cva(["rounded-sm", "text-white", "p-2", "mt-5"], {
 
     compoundVariants: [
         {
-            intent: "active",
+            intent: "default",
             size: "medium"
         }
     ],
 
     defaultVariants: {
-        intent: "active",
+        intent: "default",
         size: "medium",
     }
 })

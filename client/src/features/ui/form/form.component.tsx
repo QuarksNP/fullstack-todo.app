@@ -6,7 +6,7 @@ export const Form: React.FC<FormProps> = ({
   ...props
 }) => {
   return (
-    <form {...props} onSubmit={handleSubmit} className="flex flex-col">
+    <form {...props} onSubmit={handleSubmit} className="flex flex-col gap-5 w-full [&>fieldset>span]:text-red-500">
       {children}
     </form>
   );

@@ -17,6 +17,7 @@ export default {
         "LightGrayishBlue(hover)": "hsl(236, 33%, 92%)",
         DarkGrayishBlue: "hsl(234, 11%, 52%)",
         VeryDarkGrayishBlue: "hsl(233, 14%, 35%)",
+        "DarkGray": "rgb(54, 54, 54)"
       },
     },
   },
