@@ -31,6 +31,11 @@ export const postUser = async (endpoint: string, data:{[k: string]: FormDataEntr
         console.log(token)
         toast.success("User successfully created!")
     } catch (error) {
-        toast.error((error as Error).message)
+        if(error instanceof Error) {
+            toast.success("User successfully created!")
+        } else {
+            console.log("unexpected error: " + error)
+            toast.error("unexpected error")
+        }
     }
 }
