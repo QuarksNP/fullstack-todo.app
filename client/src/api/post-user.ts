@@ -1,9 +1,10 @@
 import { toast } from "sonner";
 
 
-const BASE_URL = "http://localhost:3000/"
+const BASE_URL = import.meta.env.VITE_SERVER_URL
 
 export const postUser = async (endpoint: string, data:{[k: string]: FormDataEntryValue}) => {
+    console.log(data)
     try {
         const response = await fetch(`${BASE_URL}${endpoint}`, {
             method: "POST",
@@ -30,6 +31,6 @@ export const postUser = async (endpoint: string, data:{[k: string]: FormDataEntr
         console.log(token)
         toast.success("User successfully created!")
     } catch (error) {
-        toast.error(error.message)
+        toast.error((error as Error).message)
     }
 }

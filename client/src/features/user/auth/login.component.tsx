@@ -17,7 +17,7 @@ export const Login = () => {
 
         <fieldset>
           <label htmlFor="password">Password</label>
-          <Field name="login-pas" id="password" required />
+          <Field name="password" id="password" required />
         </fieldset>
 
         <Button {...{ intent: "active" }}>Login</Button>
