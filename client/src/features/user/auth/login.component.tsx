@@ -24,7 +24,7 @@ export const Login = () => {
       </Form>
 
       <Redirect to="/sign-up" question="Do not you have an account?">
-        <button className="text-BrightBlue hover:underline">
+        <button id="btn-redirect" className="text-BrightBlue hover:underline">
           Create account
         </button>
       </Redirect>
