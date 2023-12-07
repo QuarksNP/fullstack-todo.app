@@ -28,8 +28,13 @@ export const postUser = async (endpoint: string, data:{[k: string]: FormDataEntr
         }
 
         const token = await response.json()
-        console.log(token)
-        toast.success("User successfully created!")
+        
+        if(endpoint === "login") toast.success(`Welcome ${data.username}!`)
+
+        else toast.success("User successfully created!")
+
+        return token
+        
     } catch (error) {
         if(error instanceof Error) {
             console.error(error.message)

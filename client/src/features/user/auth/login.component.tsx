@@ -1,15 +1,17 @@
 import { Form, Button, Field, Redirect } from "@features/ui";
 
-import { handlePostUser } from "../handle-post-user.util";
+import { useLogger } from "../use-logger.hook";
 
 export const Login = () => {
+  const { handlePostUser } = useLogger("login")
+
   return (
     <article className="w-full p-10">
       <h1 className="text-3xl font-bold mb-10 text-center">
         Welcome to Todo-app 📝
       </h1>
 
-      <Form handleSubmit={(e) => handlePostUser(e, "login")} method="post">
+      <Form handleSubmit={handlePostUser} method="post">
         <fieldset>
           <label htmlFor="username">Username</label>
           <Field name="username" id="username" required />

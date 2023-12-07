@@ -1,7 +1,7 @@
 import React from "react";
 
 import { Form, Field, Button } from "@features/ui";
-import { handlePostUser } from "./handle-post-user.util";
+import { useLogger } from "./use-logger.hook";
 import { HandleFieldValidation } from "./handle-field-validation.hook";
 
 export const SignUp = () => {
@@ -10,17 +10,15 @@ export const SignUp = () => {
     handleChange,
   } = HandleFieldValidation();
 
+  const { handlePostUser } = useLogger("signup");
+
   const checked =
     fullname.available && username.available && password.available;
 
   return (
     <React.Fragment>
       <h1 className="text-3xl font-bold mb-10">Create account 🪪</h1>
-      <Form
-        handleSubmit={(e) => handlePostUser(e, "signup")}
-        method="post"
-        onChange={handleChange}
-      >
+      <Form handleSubmit={handlePostUser} method="post" onChange={handleChange}>
         <fieldset>
           <label htmlFor="fullname">Full name</label>
           <Field name="fullname" id="fullname" />
