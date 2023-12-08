@@ -2,11 +2,9 @@ import { Builder, Key } from 'selenium-webdriver'
 
 import { describe, test, expect, afterAll } from 'vitest'
 
-import { postFieldValue, waitingForAuthPage, waitingForHomePage } from '../utils'
+import { postFieldValue, waitingForAuthPage, waitingForHomePage, redirectPage } from '../utils'
 
 import { SIGN_UP_URL, LOGIN_URL, REDIRECT_BUTTON_ID } from "../constants"
-
-import { redirectPage } from '../utils/redirect-page'
 
 
 describe("AUTHENTICATION TEST", async () => {
