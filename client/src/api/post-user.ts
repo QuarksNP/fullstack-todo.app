@@ -1,9 +1,10 @@
+import { type Data } from "@g_types/index";
+
 import { toast } from "sonner";
 
-const BASE_URL = import.meta.env.VITE_SERVER_URL
+const BASE_URL = 'http://localhost:3000/'
 
-export const postUser = async (endpoint: string, data: {[k: string]: FormDataEntryValue}) => {
-    console.log(data)
+export const postUser = async (endpoint: string, data: Data) => {
     try {
         const response = await fetch(`${BASE_URL}${endpoint}`, {
             method: "POST",
@@ -28,10 +29,6 @@ export const postUser = async (endpoint: string, data: {[k: string]: FormDataEnt
 
         const token = await response.json()
         
-        if(endpoint === "login") toast.success(`Welcome ${data.username}!`)
-
-        else toast.success("User successfully created!")
-
         return token
         
     } catch (error) {

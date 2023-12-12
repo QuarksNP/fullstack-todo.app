@@ -1,8 +1,9 @@
 import { useState } from "react";
 
 import { baseFieldValidator, passwordValidator } from "src/utils";
+import { getFields } from "src/utils/get-fields";
 
-export const HandleFieldValidation = () => {
+export const useRegisterValidate = () => {
     const initialState = {
         fullname: {
             msg: "",
@@ -24,9 +25,8 @@ export const HandleFieldValidation = () => {
         event.preventDefault()
 
         const currentField = (event.target as HTMLInputElement).name
-        const fields = Object.fromEntries(new window.FormData(event.currentTarget))
 
-        const { password } = fields
+        const fields = getFields(event.currentTarget) 
 
         if (currentField === "fullname" || currentField === "username") {
 
@@ -37,7 +37,7 @@ export const HandleFieldValidation = () => {
         } else if (currentField === "password") {
             setErrors(prev => ({
                 ...prev,
-                password: passwordValidator(password as string)
+                password: passwordValidator(fields.password as string)
             }))
         }
     }

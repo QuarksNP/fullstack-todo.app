@@ -1,10 +1,22 @@
-import { FieldProps } from "@interfaces/index"
-
-export const Field: React.FC<FieldProps> = ({ icon, ...props }) => {
-    return (
-        <div>
-            {icon}
-            <input {...props} className="w-full p-1 rounded-sm text-black"/>
-        </div>
-    )
+interface FieldProps extends React.InputHTMLAttributes<HTMLInputElement> {
+  icon?: React.ReactSVGElement;
+  errorMessage?: string;
 }
+
+export const Field = ({
+  children,
+  icon,
+  errorMessage,
+  ...props
+}: React.PropsWithChildren<FieldProps>) => {
+  return (
+    <fieldset>
+      {children}
+      <div>
+        {icon}
+        <input {...props} required className="w-full p-1 rounded-sm text-black" />
+      </div>
+      {errorMessage && <span>{errorMessage}</span>}
+    </fieldset>
+  );
+};

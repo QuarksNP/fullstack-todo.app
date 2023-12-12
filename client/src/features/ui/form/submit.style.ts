@@ -1,16 +1,16 @@
 import { cva } from "class-variance-authority";
 
-export const button = cva(["rounded-sm", "text-white", "p-2", "mt-5"], {
+export const button = cva(["rounded-sm", "text-white", "p-2", "mt-5", "bg-BrightBlue"], {
     variants: {
         intent: {
             active: [
-                "bg-BrightBlue",
+                "opacity-100",
                 "hover:bg-LightBlue",
                 "transition-colors"
             ],
 
             disabled: [
-                "bg-LightBlue",
+                "opacity-50",
                 "pointer-events-none"
             ]
         },

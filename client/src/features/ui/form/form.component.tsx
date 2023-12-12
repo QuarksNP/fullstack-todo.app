@@ -1,13 +1,25 @@
-import { FormProps } from "@interfaces/index";
+import { Field } from "./field.component";
 
-export const Form: React.FC<FormProps> = ({
+interface FormProps extends React.FormHTMLAttributes<HTMLFormElement> {
+  onSubmit: React.FormEventHandler<HTMLFormElement>;
+}
+
+export function Form({
   children,
-  handleSubmit,
+  onSubmit,
   ...props
-}) => {
+}: React.PropsWithChildren<FormProps>) {
   return (
-    <form {...props} onSubmit={handleSubmit} className="flex flex-col gap-5 w-full [&>fieldset>span]:text-red-500">
+    <form
+      {...props}
+      onSubmit={onSubmit}
+      className="flex flex-col gap-5 w-full [&>fieldset>span]:text-red-500"
+    >
       {children}
     </form>
   );
-};
+}
+
+Form.FieldFullName = Field;
+Form.FieldUsername = Field;
+Form.FieldPassword = Field;

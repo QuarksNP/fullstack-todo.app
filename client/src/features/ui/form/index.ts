@@ -1,3 +1,3 @@
-export * from "./form.component"
-export * from "./submit.component"
-export * from "./field.component"
+import { Form } from "./form.component";
+
+export default Form

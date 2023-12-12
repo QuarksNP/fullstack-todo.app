@@ -1,9 +1,19 @@
-import { Form, Button, Field, Redirect } from "@features/ui";
+import { Button, Redirect, Spinner } from "@features/ui";
 
-import { useLogger } from "../use-logger.hook";
+import Form from "@features/ui/form";
+
+import { useLoggerUser } from "./use-logger-user.hook";
+import { useLoginValidator } from "./use-login-validate.hook";
 
 export const Login = () => {
-  const { handlePostUser } = useLogger("login")
+  const {
+    emptyFields: { username, password },
+    handleChange,
+  } = useLoginValidator();
+  const { isLogging, handlePostUser } = useLoggerUser();
+
+  const isNotEmpty = !username && !password;
+  const isAvailable = isNotEmpty && !isLogging;
 
   return (
     <article className="w-full p-10">
@@ -11,18 +21,18 @@ export const Login = () => {
         Welcome to Todo-app 📝
       </h1>
 
-      <Form handleSubmit={handlePostUser} method="post">
-        <fieldset>
+      <Form method="post" onSubmit={handlePostUser} onChange={handleChange}>
+        <Form.FieldUsername id="username" name="username">
           <label htmlFor="username">Username</label>
-          <Field name="username" id="username" required />
-        </fieldset>
+        </Form.FieldUsername>
 
-        <fieldset>
+        <Form.FieldPassword id="password" name="password">
           <label htmlFor="password">Password</label>
-          <Field name="password" id="password" required />
-        </fieldset>
+        </Form.FieldPassword>
 
-        <Button {...{ intent: "active" }}>Login</Button>
+        <Button {...{ intent: isAvailable ? "active" : "disabled" }}>
+          {isLogging ? <Spinner /> : "Create account"}
+        </Button>
       </Form>
 
       <Redirect to="/sign-up" question="Do not you have an account?">
