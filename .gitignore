@@ -17,6 +17,11 @@ client/*.local
 
 client/.env
 
+__tests__/.env
+__tests__/node_modules
+__tests__/html
+__tests__/coverage
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
