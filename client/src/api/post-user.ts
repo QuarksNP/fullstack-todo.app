@@ -1,9 +1,8 @@
 import { toast } from "sonner";
 
-
 const BASE_URL = import.meta.env.VITE_SERVER_URL
 
-export const postUser = async (endpoint: string, data:{[k: string]: FormDataEntryValue}) => {
+export const postUser = async (endpoint: string, data: {[k: string]: FormDataEntryValue}) => {
     console.log(data)
     try {
         const response = await fetch(`${BASE_URL}${endpoint}`, {

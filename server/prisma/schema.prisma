@@ -25,4 +25,5 @@ model Todos {
   description String  @db.VarChar(255)
   user_id     String
   user        User    @relation(fields: [user_id], references: [id])
+  @@unique([id, user_id])
 }

@@ -5,7 +5,7 @@ export const createJWT = (user: UserModel) => {
     const token = sign({
         username: user.username,
         id: user.id,
-    }, process.env.JWT_SECRET || 'secret');
+    }, process.env.JWT_SECRET_KEY || 'secret');
 
     return token
 }

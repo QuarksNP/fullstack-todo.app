@@ -4,9 +4,9 @@ import { ExpressRequest, ExpressResponse, ExpressNextFunction } from "../../../i
 
 export const loginValidation = [
     check('username').exists()
-                     .notEmpty().withMessage('Username must not be empty'),
+                     .notEmpty().withMessage('<username> must not be empty'),
     check('password').exists()
-                     .notEmpty().withMessage('Password must not be empty'),
+                     .notEmpty().withMessage('<password> must not be empty'),
     (req: ExpressRequest, res: ExpressResponse, next: ExpressNextFunction) => {
         checkResult(req, res, next)
     }
